@@ -61,13 +61,25 @@ Delete the image:
 $ ~/.gem/ruby/2.2.0/bin/veewee vbox destroy 'debian-jessie-amd64-netboot'
 ```
 
-### Convert Image to KVM
+## Convert Image to KVM
+
+This step is needed to be able to use the image at our Hoster (netcups).
 
 This is basically an easy conversion from vdi to qcow2 (the format of KVM and qemu).
 
 There are several ways, one is to convert vdi to raw and then raw to qcow2. Also
 netcups support raw images as well, I did prefer to convert the image directly to
 qcow2 to save some disk space. For a detailed description see the [randomhacks](http://www.randomhacks.co.uk/how-to-convert-virtualbox-vdi-to-kvm-qcow2/) page.
+
+```
+qemu-img convert -f vdi -O qcow2 ~/VirtualBox\ VMs/debian-jessie-i386-netboot/debian-jessie-i386-netboot1.vdi iso/debian-jessie-i386-netboot.qcow2
+```
+
+To be able to reuse the assigned disk space at the hoster, the disk is resized:
+
+```
+qemu-img resize iso/debian-jessie-i386-netboot.qcow2 384GB
+```
 
 ## KVM (not working for me...)
 
