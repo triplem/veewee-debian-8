@@ -19,8 +19,12 @@ instructions from veewee on how to login via ssh to this machine.
 
 We do provide two image templates, one for i386 and another one for amd64:
 
-* debian-jessie-i386-netboot
-* debian-jessie-amd64-netboot
+* debian-jessie-i386-netinst
+* debian-jessie-amd64-netinst
+
+The generated images can be downloaded on [sourceforge.net](https://sourceforge.net/projects/veeweedebianjessie/files/).
+These images are already converted to qcow2 and resized, to be able to fit those
+into the netcups servers (see below for concrete settings).
 
 ## Generate Image
 
@@ -40,25 +44,25 @@ $ gem install veewee
 Create the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox build 'debian-jessie-amd64-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox build 'debian-jessie-amd64-netinst'
 ```
 
 Start the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox up 'debian-jessie-amd64-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox up 'debian-jessie-amd64-netinst'
 ```
 
 Halt the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox halt 'debian-jessie-amd64-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox halt 'debian-jessie-amd64-netinst'
 ```
 
 Delete the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox destroy 'debian-jessie-amd64-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox destroy 'debian-jessie-amd64-netinst'
 ```
 
 ## Convert Image to KVM
@@ -72,7 +76,7 @@ netcups support raw images as well, I did prefer to convert the image directly t
 qcow2 to save some disk space. For a detailed description see the [randomhacks](http://www.randomhacks.co.uk/how-to-convert-virtualbox-vdi-to-kvm-qcow2/) page.
 
 ```
-qemu-img convert -f vdi -O qcow2 ~/VirtualBox\ VMs/debian-jessie-i386-netboot/debian-jessie-i386-netboot1.vdi iso/debian-jessie-i386-netboot.qcow2
+qemu-img convert -f vdi -O qcow2 ~/VirtualBox\ VMs/debian-jessie-i386-netinst/debian-jessie-i386-netinst.vdi iso/debian-jessie-i386-netinst.qcow2
 ```
 
 To be able to reuse the assigned disk space at the hoster, the disk is resized:
