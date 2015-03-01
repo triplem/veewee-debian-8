@@ -12,7 +12,7 @@ Veewee::Definition.declare({
      '/install.amd/vmlinuz ',
      'initrd=/install.amd/initrd.gz ',
      'locale=en_US ',
-     'preseed/ulr=http://%IP%:%PORT%/preseed.cfg ',
+     'preseed/url=http://%IP%:%PORT%/preseed.cfg ',
      'debian-installer=en_US ',
      'auto ',
      'kbd-chooser/method=us ',
