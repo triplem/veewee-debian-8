@@ -35,25 +35,25 @@ $ gem install veewee
 Create the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox build 'debian-jessie-i386-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox build 'debian-jessie-amd64-netboot'
 ```
 
 Start the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox up 'debian-jessie-i386-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox up 'debian-jessie-amd64-netboot'
 ```
 
 Halt the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox halt 'debian-jessie-i386-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox halt 'debian-jessie-amd64-netboot'
 ```
 
 Delete the image:
 
 ```
-$ ~/.gem/ruby/2.2.0/bin/veewee vbox destroy 'debian-jessie-i386-netboot'
+$ ~/.gem/ruby/2.2.0/bin/veewee vbox destroy 'debian-jessie-amd64-netboot'
 ```
 
 ## KVM (not working for me...)
