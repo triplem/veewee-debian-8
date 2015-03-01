@@ -17,6 +17,11 @@ This image will create a user "phreevpn" on the constructed box with the passwor
 "phreevpn". After finishing the construction of the image, you will receive detailed
 instructions from veewee on how to login via ssh to this machine.
 
+We do provide two image templates, one for i386 and another one for amd64:
+
+* debian-jessie-i386-netboot
+* debian-jessie-amd64-netboot
+
 ## Generate Image
 
 I found a great and easy to use tool, to generate the image: [Veewee](https://github.com/jedi4ever/veewee)
@@ -55,6 +60,14 @@ Delete the image:
 ```
 $ ~/.gem/ruby/2.2.0/bin/veewee vbox destroy 'debian-jessie-amd64-netboot'
 ```
+
+### Convert Image to KVM
+
+This is basically an easy conversion from vdi to qcow2 (the format of KVM and qemu).
+
+There are several ways, one is to convert vdi to raw and then raw to qcow2. Also
+netcups support raw images as well, I did prefer to convert the image directly to
+qcow2 to save some disk space. For a detailed description see the [randomhacks](http://www.randomhacks.co.uk/how-to-convert-virtualbox-vdi-to-kvm-qcow2/) page.
 
 ## KVM (not working for me...)
 
